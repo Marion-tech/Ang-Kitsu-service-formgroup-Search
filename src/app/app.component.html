@@ -1,0 +1,15 @@
+<nav>
+  <form [formGroup]="formGroup">
+    <input formControlName="search" type="text" />
+    <select formControlName="genre">
+      <option value="">Genre</option>
+      <option *ngFor="let genre of genre$ | async" [value]="genre.attributes.name">
+        {{ genre.attributes.name }}
+      </option>
+    </select>
+  </form>
+</nav>
+
+<div *ngFor="let anime of anime$ | async">
+  {{ anime.attributes.canonicalTitle }}
+</div>
